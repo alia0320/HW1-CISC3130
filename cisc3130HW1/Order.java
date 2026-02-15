@@ -156,6 +156,23 @@ public class Order {
 	public String toString() {
 		return "Order ID: " + this.orderId + "\tCustomer Name: " + this.customerName + "\tOrder Date: " + this.orderDate + "\tOrder Status: " + this.orderStatus;
 	}
+
+	/*
+	 * makes it so that we can avoid duplicates
+	 */
+	
+	@Override
+	public boolean equals(Object other) {
+		if (!(other instanceof Order)) {
+			return false;
+		}
+		Order obj = (Order) other;
+		if (this.orderId.equals(obj.getOrderId())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	/*
 	 * i assume that this is a getter and that the gitHub does not mean a literal copy of the items Vector.
