@@ -155,7 +155,7 @@ public class InventorySystemMain {
 		System.out.print("Enter Customer Name: ");
 		String customerName = in.nextLine();
 		
-		System.out.print("Enter Customer Date: ");
+		System.out.print("Enter Order Date: ");
 		String orderDate = in.nextLine();
 		
 		ordMan.addOrder(new Order(orderId, customerName, orderDate));
@@ -296,7 +296,7 @@ public class InventorySystemMain {
 		} catch (InputMismatchException ex) {
 			System.out.print("Please enter a valid number: ");
 			in.nextLine();
-			processDouble(in);
+			number = processDouble(in);
 		}
 		return number;
 	}
@@ -312,7 +312,7 @@ public class InventorySystemMain {
 		} catch (InputMismatchException ex) {
 			System.out.print("Please enter a valid whole number: ");
 			in.nextLine();
-			processInt(in);
+			number = processInt(in);
 		}
 		return number;
 	}
