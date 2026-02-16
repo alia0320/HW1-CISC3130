@@ -90,10 +90,10 @@ public class ProductInventory {
 	 */
 	
 	public void updateStock(String productId, int quantityChange) {
-		if (findProduct(productId)!= null) {
+		if ((findProduct(productId)!= null) && quantityChange >= 0) {
 			findProduct(productId).setQuantity(quantityChange);
 		} else {
-			System.out.println("Could not find item of specified ID, not changes made to stock.");
+			System.out.println("Could not find item of specified ID, not changes made to stock. Also make sure the quantity is not negative.");
 		}
 	}
 	
