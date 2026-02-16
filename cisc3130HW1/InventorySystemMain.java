@@ -91,6 +91,10 @@ public class InventorySystemMain {
 		
 		System.out.print("Enter quantity of product: ");
 		int quantity = processInt(in);
+		while (quantity < 0) {
+			System.out.print("Quantity cannot be negative! Enter a number >= 0! ");
+			quantity = processInt(in);
+		}
 		
 		in.nextLine();
 		System.out.print("Enter supplier of product: ");
@@ -173,6 +177,10 @@ public class InventorySystemMain {
 			
 			System.out.print("Enter quantity for item #" + (index+1) + ": ");
 			int quantity = processInt(in);
+			while (quantity < 0) {
+				System.out.print("Quantity cannot be negative! Enter a number >= 0! ");
+				quantity = processInt(in);
+			}
 			
 			System.out.print("Enter price for item #" + (index+1) + ": ");
 			double price = processDouble(in);
