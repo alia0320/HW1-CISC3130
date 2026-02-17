@@ -248,16 +248,26 @@ public class InventorySystemMain {
 		System.out.print("To view products of inventory by category, type the category: ");
 		String categoryView = in.nextLine();
 		Vector<Product> prodCategory = prodInv.getProductsByCategory(categoryView);
-		for (int i = 0; i < prodCategory.size(); i++) {
-			System.out.println("Item #" + (i+1) + ": " + prodCategory.get(i));
+		// add checker here
+		if (prodCategory.size() == 0) {
+			System.out.println("There are no products in that specified category.");
+		} else {
+			for (int i = 0; i < prodCategory.size(); i++) {
+				System.out.println("Item #" + (i+1) + ": " + prodCategory.get(i));
+			}
 		}
 		// below are the statements to view products by low threshold specified by user
 		System.out.print("To view products of inventory by low threshold, type the threshold: ");
-		int thresholdView = in.nextInt();
+		int thresholdView = processInt(in);
 		in.nextLine();
 		Vector<Product> thresholdProd = prodInv.getLowStockProducts(thresholdView);
-		for (int i = 0; i < thresholdProd.size(); i++) {
-			System.out.println("Item #" + (i+1) + ": " + thresholdProd.get(i));
+		// add checker here
+		if (thresholdProd.size() == 0) {
+			System.out.println("There are no products below specified threshold.");
+		} else {
+			for (int i = 0; i < thresholdProd.size(); i++) {
+				System.out.println("Item #" + (i+1) + ": " + thresholdProd.get(i));
+			}
 		}
 		// lastly, print out the capacity report showing vector stats
 		prodInv.printCapacityReport();
@@ -271,22 +281,34 @@ public class InventorySystemMain {
 		// below are the methods and lines to print pending Orders
 		System.out.println("Viewing pending orders: ");
 		Vector<Order> pending = ordMan.getPendingOrders();
-		for (int i = 0; i < pending.size(); i++) {
-			System.out.println("Order #" + (i+1) + ": " + pending.get(i));
+		if (pending.size() == 0) {
+			System.out.println("There are no pending orders.");
+		} else {
+			for (int i = 0; i < pending.size(); i++) {
+				System.out.println("Order #" + (i+1) + ": " + pending.get(i));
+			}
 		}
 		// below are the lines and methods for viewing orders by customer
 		System.out.print("To view orders by customer, type the customer name: ");
 		String customerName = in.nextLine();
 		Vector<Order> customerOrders = ordMan.getOrdersByCustomer(customerName);
-		for (int i = 0; i < customerOrders.size(); i++) {
-			System.out.println("Order #" + (i+1) + ": " + customerOrders.get(i));
+		if (customerOrders.size() == 0) {
+			System.out.println("That customer has no orders.");
+		} else {
+			for (int i = 0; i < customerOrders.size(); i++) {
+				System.out.println("Order #" + (i+1) + ": " + customerOrders.get(i));
+			}
 		}
 		//below are the lines and methods for viewing orders by status
 		System.out.print("To view orders by status, type the order status (\"Pending\", \"Processing\", \"Shipped\", \"Out for delivery\", \"Delivered\", \"Returned\", \"Cancelled\"): ");
 		String status = in.nextLine();
 		Vector<Order> statusOrders = ordMan.getOrdersByStatus(status);
-		for (int i = 0; i < statusOrders.size(); i++) {
-			System.out.println("Order #" + (i+1) + ": " + statusOrders.get(i));
+		if (statusOrders.size() == 0) {
+			System.out.println("There are no orders with that specified status.");
+		} else {
+			for (int i = 0; i < statusOrders.size(); i++) {
+				System.out.println("Order #" + (i+1) + ": " + statusOrders.get(i));
+			}
 		}
 		System.out.println("------------------------------------------------------\n");
 
