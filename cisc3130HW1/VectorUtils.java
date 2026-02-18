@@ -56,7 +56,11 @@ public class VectorUtils {
 	
 	public static <T extends Number> double averageNumbers(Vector<T> numbers) {
 		double total = sumNumbers(numbers);
-		return total/numbers.size();
+		if (numbers.size() != 0) {
+			return total/numbers.size();
+		} else {
+			return 0;
+		}
 	}
 
 }
