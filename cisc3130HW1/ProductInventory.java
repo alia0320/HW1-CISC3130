@@ -81,7 +81,11 @@ public class ProductInventory {
 		for (int i = 0; i < products.size(); i++) {
 			total += (products.get(i).getPrice()*products.get(i).getQuantity());
 		}
-		return total;
+		if (products.size() != 0) {
+			return total;
+		} else {
+			return 0;
+		}
 	}
 	
 	/*
