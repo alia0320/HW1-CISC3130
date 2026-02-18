@@ -87,7 +87,11 @@ public class OrderManager {
 		for (int i = 0; i < orders.size(); i++) {
 			total += orders.get(i).calculateTotal();
 		}
-		return total;
+		if (orders.size() != 0) {
+			return total;
+		} else {
+			return 0;
+		}
 	}
 	
 	/*
