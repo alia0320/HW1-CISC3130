@@ -242,7 +242,7 @@ public class InventorySystemMain {
 		// below is title header for product inventory
 		System.out.println("-------Report Statistics for Inventory----------");
 		// below are the quantifier methods from productInventory
-		System.out.printf("Total Invetory Value: %.2f$%n", prodInv.getTotalInventoryValue());
+		System.out.printf("Total Invetory Value: $%.2f%n", prodInv.getTotalInventoryValue());
 		System.out.println("Products in Invetory: " + prodInv.getTotalProducts());
 		// below are the statements to view products by category		
 		System.out.print("To view products of inventory by category, type the category: ");
